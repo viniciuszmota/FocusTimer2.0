@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --color-base-gray: #e1e1e6;
+  --color-base-turqouise: #02799d;
+  --color-base-black: #000000;
+  --color-base-white: #ffffff;
+}
+
+body {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15rem;
+}
+
+main button {
+  border: none;
+  background: none;
+}
+
+main button:hover {
+  cursor: pointer;
+}
+
+.timer-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#timer-display span {
+  font-size: 12.5rem;
+}
+
+.timer-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timer-buttons svg {
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+.timer-display-buttons-songs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.timer-display-buttons-songs button {
+  padding: 4.8rem;
+  border-radius: 2.4rem;
+  background-color: var(--color-base-gray);
+}
+
+.timer-display-buttons-songs svg {
+  width: 5rem;
+  height: 5rem;
+}
+
+/* Classes dinamicas para o JS */
+
+.button-timer.active svg {
+  fill: var(--color-base-turqouise);
+}
+
+.button-timer.secondary {
+  display: none;
+}
+
+.button-songs.active {
+  background-color: var(--color-base-turqouise);
+}
+
+.button-songs.active svg {
+  fill: var(--color-base-white);
+}
+
+/* Classes utilitarias */
+
+.sr-only {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+
+  margin: -1;
+  padding: 0;
+  border: none;
+  appearance: none;
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Temporizador para focar nos estudos, estilo pomodoro"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./assets/images/timer-fiveicon.svg" />
+    <script src="./src/FocusTimer/main.js" type="module" defer></script>
+    <title>Focus Timer | Pomodoro 2.0</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="timer-display">
+        <div class="timer-app">
+          <section id="timer-display">
+            <span id="minutes">25</span>
+            <span>:</span>
+            <span id="seconds">00</span>
+          </section>
+
+          <section class="timer-buttons">
+            <button id="button-play" class="button-timer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm40-84a12,12,0,0,1-5.12,9.83l-40,28A12,12,0,0,1,104,156V100a12,12,0,0,1,18.88-9.83l40,28A12,12,0,0,1,168,128Z"
+                ></path>
+              </svg>
+              <span class="sr-only">Botao de play do timer</span>
+            </button>
+
+            <button id="button-pause" class="button-timer secondary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212ZM116,96v64a12,12,0,0,1-24,0V96a12,12,0,0,1,24,0Zm48,0v64a12,12,0,0,1-24,0V96a12,12,0,0,1,24,0Z"
+                ></path>
+              </svg>
+              <span class="sr-only">Botao de pause do timer</span>
+            </button>
+
+            <button id="button-stop" class="button-timer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm32-104v40a12,12,0,0,1-12,12H108a12,12,0,0,1-12-12V108a12,12,0,0,1,12-12h40A12,12,0,0,1,160,108Z"
+                ></path>
+              </svg>
+              <span class="sr-only">Botao de stop do timer</span>
+            </button>
+
+            <button id="button-plus-time" class="button-timer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm52-84a12,12,0,0,1-12,12H140v28a12,12,0,0,1-24,0V140H88a12,12,0,0,1,0-24h28V88a12,12,0,0,1,24,0v28h28A12,12,0,0,1,180,128Z"
+                ></path>
+              </svg>
+              <span class="sr-only">Botao para adicionar 5min ao timer</span>
+            </button>
+
+            <button id="button-minus-time" class="button-timer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M180,128a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h80A12,12,0,0,1,180,128Zm56,0A108,108,0,1,1,128,20,108.12,108.12,0,0,1,236,128Zm-24,0a84,84,0,1,0-84,84A84.09,84.09,0,0,0,212,128Z"
+                ></path>
+              </svg>
+              <span class="sr-only">Botao para retirar 5min do timer</span>
+            </button>
+          </section>
+        </div>
+      </div>
+
+      <div class="timer-display-buttons-songs">
+        <button
+          id="button-forest"
+          class="button-songs"
+          data-action="toggle-active"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="#000000"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M201.18,59.63a80,80,0,0,0-146.36,0A76.29,76.29,0,0,0,12,127.79c-.11,41,33.1,75.15,74,76.19a75.84,75.84,0,0,0,30-5.31V232a12,12,0,0,0,24,0V198.67A75.79,75.79,0,0,0,168,204l2,0c40.94-1,74.15-35.22,74-76.19A76.29,76.29,0,0,0,201.18,59.63ZM169.35,180A51.51,51.51,0,0,1,140,171.8V135.42l41.37-20.69a12,12,0,1,0-10.74-21.46L140,108.58V88a12,12,0,0,0-24,0v44.58L85.37,117.27a12,12,0,0,0-10.74,21.46L116,159.42V171.8A51.43,51.43,0,0,1,86.65,180,52,52,0,0,1,66.27,80.76,20,20,0,0,0,76.34,70.34a56,56,0,0,1,103.32,0,20,20,0,0,0,10.07,10.42A52,52,0,0,1,169.35,180Z"
+            ></path>
+          </svg>
+          <span class="sr-only"
+            >Botao para ativar ou desativar a musica de floresta</span
+          >
+        </button>
+
+        <button
+          id="button-rain"
+          class="button-songs"
+          data-action="toggle-active"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="#000000"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M156,12A80.22,80.22,0,0,0,82.39,60.36,56.76,56.76,0,0,0,76,60a56,56,0,0,0,0,112h29.58L86,201.34a12,12,0,1,0,20,13.32L134.42,172H156a80,80,0,0,0,0-160Zm0,136H76a32,32,0,0,1,0-64h.28c-.11,1.1-.2,2.2-.26,3.3a12,12,0,1,0,24,1.39A56.06,56.06,0,1,1,156,148Zm.65,58.66-26.67,40a12,12,0,1,1-20-13.32l26.66-40a12,12,0,1,1,20,13.32Z"
+            ></path>
+          </svg>
+          <span class="sr-only"
+            >Botao para ativar ou desativar a musica de chuva</span
+          >
+        </button>
+
+        <button
+          id="button-coffe-shop"
+          class="button-songs"
+          data-action="toggle-active"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="#000000"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M236,96a12,12,0,0,0-.44-3.3L221.2,42.51A20.08,20.08,0,0,0,202,28H54A20.08,20.08,0,0,0,34.8,42.51L20.46,92.7A12,12,0,0,0,20,96l0,16a43.94,43.94,0,0,0,16,33.92V208a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V145.92A43.94,43.94,0,0,0,236,112Zm-24,16a20,20,0,0,1-40,0v-4h40ZM44,112v-4H84v4a20,20,0,0,1-40,0Zm64-4h40v4a20,20,0,0,1-40,0ZM57.05,52H199l9.14,32H47.91ZM196,204H60V155.81c1.32.12,2.65.19,4,.19a43.86,43.86,0,0,0,32-13.85,43.89,43.89,0,0,0,64,0A43.86,43.86,0,0,0,192,156c1.35,0,2.68-.07,4-.19Z"
+            ></path>
+          </svg>
+          <span class="sr-only"
+            >Botao para ativar ou desativar a musica de cafeteria</span
+          >
+        </button>
+
+        <button
+          id="button-fireplace"
+          class="button-songs"
+          data-action="toggle-active"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="#000000"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M227.43,227.63A12,12,0,0,1,216,236a11.81,11.81,0,0,1-3.64-.57L128,208.59,43.64,235.43A11.86,11.86,0,0,1,40,236a12,12,0,0,1-3.64-23.44L88.42,196,36.36,179.43a12,12,0,0,1,7.28-22.87L128,183.4l84.36-26.84a12,12,0,0,1,7.28,22.87L167.58,196l52.06,16.56A12,12,0,0,1,227.43,227.63ZM64,108c0-50.13,55.35-84.77,57.71-86.22a12,12,0,0,1,12.58,0C136.65,23.23,192,57.87,192,108a64,64,0,0,1-128,0Zm64,40a12,12,0,0,0,12-12c0-10.26-6.64-19-12-24.32-5.36,5.35-12,14.06-12,24.32A12,12,0,0,0,128,148ZM88,108a39.74,39.74,0,0,0,4.85,19.07c4.67-24.88,27.42-40.34,28.49-41.06a12,12,0,0,1,13.32,0c1.07.72,23.82,16.18,28.49,41.06A39.74,39.74,0,0,0,168,108c0-10.34-3.93-26.74-22.64-46.18A142.75,142.75,0,0,0,128,46.6C115.36,56,88,79.67,88,108Z"
+            ></path>
+          </svg>
+          <span class="sr-only"
+            >Botao para ativar ou desativar a musica de lareira</span
+          >
+        </button>
+      </div>
+    </main>
+  </body>
+</html>
