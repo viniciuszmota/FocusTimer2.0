@@ -12,7 +12,7 @@ Fotoblog
 <br>
 
 <p align="center">
-  <img alt="Focus Timer 2.0" src="./assets/images/preview.png" width="100%">
+  <img alt="Focus Timer 2.0 | Pomodoro" src="./assets/images/preview.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
